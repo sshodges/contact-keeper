@@ -1,7 +1,19 @@
 const express = require('express');
 const connectDB = require('./config/db');
+var cors = require('cors');
 
 const app = express();
+
+//Cors Settings
+var corsOptions = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST, DELETE, OPTIONS',
+  preflightContinue: true,
+  optionsSuccessStatus: 204,
+  exposedHeaders: 'Auth'
+};
+
+app.use(cors(corsOptions));
 
 // connect to DB
 connectDB();
