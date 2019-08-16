@@ -49,10 +49,9 @@ const AuthState = props => {
         payload: res.data
       });
     } catch (error) {
-      console.log(error);
       dispatch({
         type: REGISTER_FAIL,
-        payload: error.response.message
+        payload: error.response.data.message
       });
     }
   };
@@ -67,7 +66,7 @@ const AuthState = props => {
   };
   // Clear Errors
   const clearErrors = () => {
-    console.log('clear');
+    dispatch({ type: CLEAR_ERROR });
   };
   return (
     <AuthContext.Provider

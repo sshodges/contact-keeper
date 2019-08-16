@@ -10,7 +10,7 @@ var corsOptions = {
   methods: 'GET,HEAD,PUT,PATCH,POST, DELETE, OPTIONS',
   preflightContinue: true,
   optionsSuccessStatus: 204,
-  exposedHeaders: 'Auth'
+  exposedHeaders: 'x-auth-token'
 };
 
 app.use(cors(corsOptions));
