@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import ContactContext from '../../context/contact/contactContext';
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
+import ContactContext from "../../context/contact/contactContext";
+import PropTypes from "prop-types";
 
 const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
@@ -10,21 +10,21 @@ const ContactItem = ({ contact }) => {
     clearCurrentContact
   } = contactContext;
 
-  const { id, name, email, phone, type } = contact;
+  const { _id, name, email, phone, type } = contact;
   const onDelete = () => {
-    deleteContact(id);
+    deleteContact(_id);
     clearCurrentContact();
   };
 
   return (
     <div className='card bg-light'>
       <h3 className='text-primary text-left'>
-        {name}{' '}
+        {name}{" "}
         <span
-          style={{ float: 'right' }}
+          style={{ float: "right" }}
           className={
-            'badge ' +
-            (type === 'professional' ? 'badge-success' : 'badge-primary')
+            "badge " +
+            (type === "professional" ? "badge-success" : "badge-primary")
           }
         >
           {type.charAt(0).toUpperCase() + type.slice(1)}

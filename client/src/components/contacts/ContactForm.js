@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
-import ContactContext from '../../context/contact/contactContext';
+import React, { useState, useContext, useEffect } from "react";
+import ContactContext from "../../context/contact/contactContext";
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
@@ -16,19 +16,19 @@ const ContactForm = () => {
       setContact(currentContact);
     } else {
       setContact({
-        name: '',
-        email: '',
-        phone: '',
-        type: 'personal'
+        name: "",
+        email: "",
+        phone: "",
+        type: "personal"
       });
     }
   }, [contactContext, currentContact]);
 
   const [contact, setContact] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    type: 'personal'
+    name: "",
+    email: "",
+    phone: "",
+    type: "personal"
   });
 
   const { name, email, phone, type } = contact;
@@ -44,10 +44,10 @@ const ContactForm = () => {
     } else {
       addContact(contact);
       setContact({
-        name: '',
-        email: '',
-        phone: '',
-        type: 'personal'
+        name: "",
+        email: "",
+        phone: "",
+        type: "personal"
       });
     }
   };
@@ -59,7 +59,7 @@ const ContactForm = () => {
   return (
     <form onSubmit={onSubmit}>
       <h2 className='text-primary'>
-        {currentContact ? 'Edit Contact' : 'Add Contact'}
+        {currentContact ? "Edit Contact" : "Add Contact"}
       </h2>
       <input
         type='text'
@@ -67,6 +67,7 @@ const ContactForm = () => {
         name='name'
         value={name}
         onChange={onChange}
+        required
       />
       <input
         type='email'
@@ -88,21 +89,21 @@ const ContactForm = () => {
         name='type'
         value='personal'
         onChange={onChange}
-        checked={type === 'personal'}
-      />{' '}
-      Personal{' '}
+        checked={type === "personal"}
+      />{" "}
+      Personal{" "}
       <input
         type='radio'
         name='type'
         value='professional'
         onChange={onChange}
-        checked={type === 'professional'}
-      />{' '}
-      Professional{' '}
+        checked={type === "professional"}
+      />{" "}
+      Professional{" "}
       <div>
         <input
           type='submit'
-          value={currentContact ? 'Update Contact' : 'Add Contact'}
+          value={currentContact ? "Update Contact" : "Add Contact"}
           className='btn btn-primary btn-block'
         />
       </div>
